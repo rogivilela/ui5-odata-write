@@ -1,0 +1,22 @@
+specVersion: '1.0'
+metadata:
+  name: 'odata_write'
+type: application
+ui5Theme: sap_fiori_3
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: ovly_public
+          url: http://54.159.3.152:50000
+        app:
+          name: ZT56_99_ODATAW
+          description: Catalogo de Produtos
+          package: $TMP
+          transport: ""
